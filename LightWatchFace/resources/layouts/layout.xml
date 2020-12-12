@@ -1,7 +1,8 @@
 <layout id="WatchFace">
     <drawable class="Background" />
-    <label id="lblTime" x="center" y="center" font="@Fonts.kirvy" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="lblDate" x="center" y="130" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_CENTER"  />
-    <label id="lblHeart" x="center" y="20" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_CENTER"  />
-    <label id="lblBattery" x="center" y="170" font="Graphics.FONT_SMALL" justification="Graphics.TEXT_JUSTIFY_CENTER"  />
+    <bitmap id="bmpHeart" x="center" y="0" filename="heart.png" />
+    <label id="lblTime" x="center" y="center" font="@Fonts.helmut" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+    <label id="lblDate" x="center" y="135" font="Graphics.FONT_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_DK_GREEN"  />
+    <label id="lblHeart" x="center" y="25" font="Graphics.FONT_NUMBER_MILD" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLACK" />
+    <drawable class="LightWatchBattery"/>
 </layout>

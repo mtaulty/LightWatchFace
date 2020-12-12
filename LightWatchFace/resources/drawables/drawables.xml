@@ -1,12 +1,7 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
-    <drawable-list id="greenCircle">
-        <shape type="circle" x="center" y="center" radius="103" color="Graphics.COLOR_TRANSPARENT" border_color="Graphics.COLOR_GREEN" border_width="2" />
-    </drawable-list>
-    <drawable-list id="yellowCircle">
-        <shape type="circle" x="center" y="center" radius="103" color="Graphics.COLOR_TRANSPARENT" border_color="Graphics.COLOR_YELLOW" border_width="2" />
-    </drawable-list>
-    <drawable-list id="redCircle">
-        <shape type="circle" x="center" y="center" radius="103" color="Graphics.COLOR_TRANSPARENT" border_color="Graphics.COLOR_RED" border_width="2" />
-    </drawable-list>    
+    <bitmap id="bmpBatteryGood" filename="batteryGood.png"/>
+    <bitmap id="bmpBatteryOK" filename="batteryOk.png"/>
+    <bitmap id="bmpBatteryPoor" filename="batteryPoor.png"/>
+    <bitmap id="bmpBatteryDying" filename="batteryDying.png"/>
 </drawables>

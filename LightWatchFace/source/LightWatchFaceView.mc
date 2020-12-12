@@ -6,13 +6,10 @@ using Toybox.Application;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
-class LightWatchFaceView extends WatchUi.WatchFace {
-
+class LightWatchFaceView extends WatchUi.WatchFace
+ {
     function initialize() {
         WatchFace.initialize();
-        redCircle = new Rez.Drawables.redCircle();
-        yellowCircle = new Rez.Drawables.yellowCircle();
-        greenCircle = new Rez.Drawables.greenCircle();
     }
 
     // Load your resources here
@@ -40,42 +37,52 @@ class LightWatchFaceView extends WatchUi.WatchFace {
         var timeString = Lang.format(timeFormat, [hours, clockTime.min.format("%02d")]);
 
         var view = View.findDrawableById("lblTime");
-        view.setColor(Application.getApp().getProperty("ForegroundColor"));
         view.setText(timeString);
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);
          var dateString = Lang.format(
-            "$1$ $2$",
+            "$1$ $2$ $3$",
             [
                 today.day_of_week,
                 today.day,
+                today.month
             ]
         );
         view = View.findDrawableById("lblDate");
         view.setText(dateString);
 
         view = View.findDrawableById("lblHeart");     
-        var heartRate = UserProfile.getProfile().restingHeartRate;
-        view.setText(heartRate.format("%d"));
+        view.setText(getHeartRate());
 
-        view = View.findDrawableById("lblBattery");
-        var battery = System.getSystemStats().battery;
-        view.setText(battery.format("%d"));
- 
+        // var notificationCount = System.getDeviceSettings().notificationCount;        
+        // var phoneConnected = System.getDeviceSettings().phoneConnected;      
+        // var stepCount = ActivityMonitor.History.steps;
+        // var stepGoal = ActivityMonitor.History.stepGoal;
+        // var activeMinutes = ActivityMonitor.History.activeMinutes;
+
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
+    }
+    function getHeartRate() 
+    {
+        var ret="--";
+        
+        var hr = Activity.getActivityInfo().currentHeartRate;
 
-        var circle = greenCircle;
-
-        if (battery < 25)
+        if (hr != null) 
         {
-            circle = redCircle;
-        }
-        else if (battery < 50)
+            ret = hr.toString();
+        } 
+        else 
         {
-            circle = yellowCircle;
+            var hrI = ActivityMonitor.getHeartRateHistory(1, true);
+            var hrs = hrI.next().heartRate;
+            if(hrs != null && hrs != ActivityMonitor.INVALID_HR_SAMPLE)
+            {
+                 ret = hrs.toString();
+            }
         }
-        circle.draw(dc);
+        return ret;
     }
 
     // Called when this View is removed from the screen. Save the
@@ -91,7 +98,4 @@ class LightWatchFaceView extends WatchUi.WatchFace {
     // Terminate any active timers and prepare for slow updates.
     function onEnterSleep() {
     }
-    var redCircle;
-    var greenCircle;
-    var yellowCircle;
 }
