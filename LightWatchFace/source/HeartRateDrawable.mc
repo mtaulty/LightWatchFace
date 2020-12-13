@@ -32,7 +32,7 @@ class HeartRateDrawable extends WatchUi.Drawable
     }
     function getHeartRateString() 
     {
-        var heartRateString = "?";
+        var heartRateString = "-";
         
         var heartRate = Activity.getActivityInfo().currentHeartRate;
 

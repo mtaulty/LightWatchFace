@@ -2,5 +2,6 @@
     <drawable class="DateTimeDrawable"/>    
     <drawable class="HeartRateDrawable"/>
     <drawable class="BluetoothNotificationsDrawable"/>
+    <drawable class="CaloriesStepsDistanceDrawable"/>
     <drawable class="BatteryDrawable"/>
 </layout>

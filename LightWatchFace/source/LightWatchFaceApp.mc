@@ -16,13 +16,19 @@ class LightWatchFaceApp extends Application.AppBase {
     }
 
     // Return the initial view of your application here
-    function getInitialView() {
-        return [ new LightWatchFaceView() ];
+    function getInitialView() 
+    {
+        self.mainView = new LightWatchFaceView();
+        
+        return [ self.mainView ];
     }
 
     // New app settings have been received so trigger a UI update
-    function onSettingsChanged() {
+    function onSettingsChanged() 
+    {
+        self.mainView.onSettingsChanged();
+        
         WatchUi.requestUpdate();
     }
-
+    var mainView;
 }

@@ -11,7 +11,7 @@ class BatteryDrawable extends WatchUi.Drawable {
     function initialize() 
     {
         var dictionary = {
-            :identifier => "Battery"
+            :identifier => ID
         };
 
         Drawable.initialize(dictionary);
@@ -21,15 +21,7 @@ class BatteryDrawable extends WatchUi.Drawable {
             self.images[i] = WatchUi.loadResource(self.resourceIds[i]); 
         }
 
-        for (var i = 0; i < self.batteryThresholdPropertyKeys.size(); i++)
-        {
-            var value = LightWatchFaceApp.getProperty(self.batteryThresholdPropertyKeys[i]);
-
-            if (value != null)
-            {
-                self.batteryThresholds[i] = value;
-            }
-        }
+        self.onSettingsChanged();
     }
     function draw(dc) 
     {
@@ -50,25 +42,40 @@ class BatteryDrawable extends WatchUi.Drawable {
             LayoutConstants.BatteryPosition.y, 
             image);
     }
-    var resourceIds = 
+    function onSettingsChanged()
+    {
+        for (var i = 0; i < self.batteryThresholdPropertyKeys.size(); i++)
+        {
+            var value = LightWatchFaceApp.getProperty(self.batteryThresholdPropertyKeys[i]);
+
+            if (value != null)
+            {
+                self.batteryThresholds[i] = value;
+            }
+        }
+    }
+    static var ID = "Battery";
+
+    private var resourceIds = 
         [ 
             Rez.Drawables.bmpBatteryGood, 
             Rez.Drawables.bmpBatteryOK, 
             Rez.Drawables.bmpBatteryPoor, 
             Rez.Drawables.bmpBatteryDying 
         ];
-    var batteryThresholds =
+    private var batteryThresholds =
         [
             50,
             20,
             5,
             0
         ];
-    var batteryThresholdPropertyKeys = 
+    private var batteryThresholdPropertyKeys = 
         [
             PropertyConstants.HighBatteryThreshold,
             PropertyConstants.MediumBatteryThreshold,
             PropertyConstants.LowBatteryThreshold
         ];
-    var images = new[4];
+    private var images = new[4];
+    
 }

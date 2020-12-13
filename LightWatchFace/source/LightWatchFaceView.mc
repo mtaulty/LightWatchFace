@@ -39,9 +39,27 @@ class LightWatchFaceView extends WatchUi.WatchFace
     // The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() 
     {
+        var caloriesDrawable = self.findDrawableById(CaloriesStepsDistanceDrawable.ID);
+        if (caloriesDrawable != null)
+        {
+            caloriesDrawable.onExitSleep();
+        }
     }
     // Terminate any active timers and prepare for slow updates.
     function onEnterSleep() 
     {
+        var caloriesDrawable = self.findDrawableById(CaloriesStepsDistanceDrawable.ID);
+        if (caloriesDrawable != null)
+        {
+            caloriesDrawable.onEnterSleep();
+        }
+    }
+    function onSettingsChanged()
+    {
+        var batteryDrawable = self.findDrawableById(BatteryDrawable.ID);
+        if (batteryDrawable != null)
+        {
+            batteryDrawable.onSettingsChanged();
+        }
     }
 }

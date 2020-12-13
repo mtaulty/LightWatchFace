@@ -34,6 +34,14 @@ class ColourManagement
     {
         return(getBitmapById(Rez.Drawables.bmpNotifications));
     }
+    static function getCaloriesBitmap()
+    {
+        return(getBitmapById(Rez.Drawables.bmpCalories));
+    }
+    static function getStepsBitmap()
+    {
+        return(getBitmapById(Rez.Drawables.bmpSteps));
+    }
     private static function getBitmapById(bitmapId)
     {
         // Change to the light theme bitmap if necessary.
@@ -53,7 +61,9 @@ class ColourManagement
     {
         Rez.Drawables.bmpHeart          => Rez.Drawables.bmpHeartLight,
         Rez.Drawables.bmpNotifications  => Rez.Drawables.bmpNotificationsLight,
-        Rez.Drawables.bmpBluetooth      => Rez.Drawables.bmpBluetoothLight
+        Rez.Drawables.bmpBluetooth      => Rez.Drawables.bmpBluetoothLight,
+        Rez.Drawables.bmpSteps          => Rez.Drawables.bmpStepsLight,
+        Rez.Drawables.bmpCalories       => Rez.Drawables.bmpCaloriesLight
     };
     static var lightThemeHeart;
     static var darkThemeHeart;
