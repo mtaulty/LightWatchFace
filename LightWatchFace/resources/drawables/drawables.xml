@@ -4,4 +4,6 @@
     <bitmap id="bmpBatteryOK" filename="batteryOk.png"/>
     <bitmap id="bmpBatteryPoor" filename="batteryPoor.png"/>
     <bitmap id="bmpBatteryDying" filename="batteryDying.png"/>
+    <bitmap id="bmpBluetooth" filename="bluetooth.png"/>
+    <bitmap id="bmpNotifications" filename="notifications.png"/>
 </drawables>

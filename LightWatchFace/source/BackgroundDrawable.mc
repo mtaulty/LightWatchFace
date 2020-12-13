@@ -2,7 +2,7 @@ using Toybox.WatchUi;
 using Toybox.Application;
 using Toybox.Graphics;
 
-class Background extends WatchUi.Drawable {
+class BackgroundDrawable extends WatchUi.Drawable {
 
     function initialize() {
         var dictionary = {

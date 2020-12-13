@@ -6,7 +6,7 @@ using Toybox.Application;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
-class LightWatchBattery extends WatchUi.Drawable {
+class BatteryDrawable extends WatchUi.Drawable {
 
     function initialize() 
     {
@@ -35,7 +35,10 @@ class LightWatchBattery extends WatchUi.Drawable {
                 break;
             }
         }
-        dc.drawBitmap(90, 165, image);
+        dc.drawBitmap(
+            LayoutConstants.BatteryPosition.x, 
+            LayoutConstants.BatteryPosition.y, 
+            image);
     }
     var resourceIds = 
         [ 
