@@ -91,6 +91,7 @@ I also made a lot of reference to the Garmin SDK notes and in particular I kept 
 * [Resources](https://developer.garmin.com/connect-iq/core-topics/resources/)
 * [Graphics](https://developer.garmin.com/connect-iq/core-topics/graphics/)
 * [Layouts](https://developer.garmin.com/connect-iq/core-topics/layouts/)
+* [Custom Fonts](https://developer.garmin.com/connect-iq/core-topics/resources/) - the section on making Bitmap Fonts for use on the device
 * [App Settings](https://developer.garmin.com/connect-iq/core-topics/app-settings/)
 * [Beta Apps](https://developer.garmin.com/connect-iq/core-topics/beta-apps/)
 * [Store Publishing](https://developer.garmin.com/connect-iq/core-topics/publishing-to-the-store/)

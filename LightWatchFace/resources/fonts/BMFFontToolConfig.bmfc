@@ -2,14 +2,14 @@
 fileVersion=1
 
 # font settings
-fontName=Kirvy
+fontName=Helmet
 fontFile=
 charSet=0
-fontSize=-64
-aa=1
+fontSize=-84
+aa=2
 scaleH=100
 useSmoothing=1
-isBold=1
+isBold=0
 isItalic=0
 useUnicode=1
 disableBoxChars=1
@@ -50,6 +50,7 @@ invB=0
 outlineThickness=0
 
 # selected chars
-chars=32-126,161-165,167-169,171,174,176,180-182,184,187,191-255
+chars=0-0,32-126,161-165,167,169-171,174,176,178-179,182-183,185-187,191-207,209-221,223-239,241-253,255
+chars=68096
 
 # imported icon images
