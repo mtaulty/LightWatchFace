@@ -4,6 +4,11 @@
     <bitmap id="bmpBatteryOK" filename="batteryOk.png"/>
     <bitmap id="bmpBatteryPoor" filename="batteryPoor.png"/>
     <bitmap id="bmpBatteryDying" filename="batteryDying.png"/>
+    <bitmap id="bmpHeart" filename="heart.png"/>
+    <bitmap id="bmpHeartLight" filename="heartLight.png"/>
     <bitmap id="bmpBluetooth" filename="bluetooth.png"/>
     <bitmap id="bmpNotifications" filename="notifications.png"/>
+    <bitmap id="bmpBluetoothLight" filename="bluetoothLight.png"/>
+    <bitmap id="bmpNotificationsLight" filename="notificationsLight.png"/>
+
 </drawables>

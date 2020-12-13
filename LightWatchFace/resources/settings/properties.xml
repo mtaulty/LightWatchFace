@@ -1,6 +1,8 @@
 <properties>
 
-    <property id="BackgroundColor" type="number">0x000000</property>
-    <property id="ForegroundColor" type="number">0xFF0000</property>
+    <property id="LightTheme" type="boolean">false</property>
+    <property id="HighBatteryThreshold" type="number">50</property>
+    <property id="MediumBatteryThreshold" type="number">20</property>
+    <property id="LowBatteryThreshold" type="number">5</property>
 
 </properties>

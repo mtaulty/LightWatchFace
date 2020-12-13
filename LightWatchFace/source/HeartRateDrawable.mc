@@ -16,7 +16,12 @@ class HeartRateDrawable extends WatchUi.Drawable
 
     function draw(dc)
     {
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        dc.drawBitmap(
+            LayoutConstants.HeartPosition.x,
+            LayoutConstants.HeartPosition.y,
+            ColourManagement.getHeartBitmap());
+
+        dc.setColor(ColourManagement.getBackgroundColor(), Graphics.COLOR_TRANSPARENT);
         
         dc.drawText(
             LayoutConstants.HeartRatePosition.x, 

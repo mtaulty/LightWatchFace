@@ -20,6 +20,16 @@ class BatteryDrawable extends WatchUi.Drawable {
         {
             self.images[i] = WatchUi.loadResource(self.resourceIds[i]); 
         }
+
+        for (var i = 0; i < self.batteryThresholdPropertyKeys.size(); i++)
+        {
+            var value = LightWatchFaceApp.getProperty(self.batteryThresholdPropertyKeys[i]);
+
+            if (value != null)
+            {
+                self.batteryThresholds[i] = value;
+            }
+        }
     }
     function draw(dc) 
     {
@@ -53,6 +63,12 @@ class BatteryDrawable extends WatchUi.Drawable {
             20,
             5,
             0
+        ];
+    var batteryThresholdPropertyKeys = 
+        [
+            PropertyConstants.HighBatteryThreshold,
+            PropertyConstants.MediumBatteryThreshold,
+            PropertyConstants.LowBatteryThreshold
         ];
     var images = new[4];
 }

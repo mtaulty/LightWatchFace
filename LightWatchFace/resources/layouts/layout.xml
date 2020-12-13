@@ -1,8 +1,6 @@
 <layout id="WatchFace">
-    <drawable class="BackgroundDrawable" />
-    <bitmap id="bmpHeart" x="center" y="0" filename="heart.png" />
-    <label id="lblTime" x="center" y="center" font="@Fonts.helmut" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="lblDate" x="center" y="135" font="Graphics.FONT_MEDIUM" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_DK_GREEN"  />
+    <drawable class="DateTimeDrawable"/>    
     <drawable class="HeartRateDrawable"/>
+    <drawable class="BluetoothNotificationsDrawable"/>
     <drawable class="BatteryDrawable"/>
 </layout>
