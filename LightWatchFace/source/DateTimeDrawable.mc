@@ -37,7 +37,7 @@ class DateTimeDrawable extends WatchUi.Drawable {
         dc.drawText(
             LayoutConstants.DatePosition.x, 
             LayoutConstants.DatePosition.y, 
-            Graphics.FONT_MEDIUM,  
+            Graphics.FONT_SYSTEM_MEDIUM,  
             self.getDateAsString(), 
             Graphics.TEXT_JUSTIFY_CENTER);
     }

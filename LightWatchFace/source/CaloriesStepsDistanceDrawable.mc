@@ -110,7 +110,7 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
         dc.drawText(
             LayoutConstants.StepsCaloriesDistancePosition.x, 
             LayoutConstants.StepsCaloriesDistancePosition.y, 
-            Graphics.FONT_SYSTEM_TINY,  
+            Graphics.FONT_SYSTEM_SMALL,  
             value, 
             Graphics.TEXT_JUSTIFY_CENTER);   
 
