@@ -1,27 +1,46 @@
 class WrapAroundCounter
 {
-    function initialize(maxValue)
+    function initialize(maxValue, tickValue)
     {
+        self.value = 0;
+        self.ticks = 0;
+        self.tickValue = tickValue;
         self.maxValue = maxValue;
     }
     function increment()
     {
-        self.value++;
-
-        if (self.value >= self.maxValue)
+        self.ticks++;
+        
+        if (self.ticks == self.tickValue)
         {
-            self.value = 0;
+            self.ticks = 0;
+            self.value++;
+            self.constrain();
         }
     }
-    function decrement()
+    private function constrain()
     {
-        self.value--;
-        
         if (self.value < 0)
         {
             self.value = self.maxValue - 1;
         }
+        if (self.value >= self.maxValue)
+        {
+            self.value = 0;
+        }
+    } 
+    function setValue(value)
+    {
+        self.value = value;
+        self.ticks = 0;
+        self.constrain();
     }
-    var value;
+    function getValue()
+    {
+        return(self.value);
+    }
+    private var value;
+    private var tickValue;
+    private var ticks;
     private var maxValue;
 }

@@ -22,20 +22,24 @@ class BluetoothNotificationsDrawable extends WatchUi.Drawable {
 
         if (deviceSettings != null) 
         {
-            if (deviceSettings.phoneConnected)
-            {
-                dc.drawBitmap(
-                    LayoutConstants.BluetoothPosition.x,
-                    LayoutConstants.BluetoothPosition.y,
-                    ColourManagement.getBluetoothBitmap());
-            }
-            if (deviceSettings.notificationCount > 0)
-            {
-                dc.drawBitmap(
-                    LayoutConstants.NotificationsPosition.x,
-                    LayoutConstants.NotificationsPosition.y,
-                    ColourManagement.getNotificationsBitmap());
-            }
+            self.conditionalDrawBitmap(
+                deviceSettings.phoneConnected,
+                dc, 
+                LayoutConstants.BluetoothPosition,
+                ColourManagement.getBluetoothBitmap());
+
+            self.conditionalDrawBitmap( 
+                deviceSettings.notificationCount > 0,
+                dc,
+                LayoutConstants.NotificationsPosition,
+                ColourManagement.getNotificationsBitmap());
         }       
+    }
+    function conditionalDrawBitmap(condition, dc, position, bitmap)
+    {
+        if (condition)
+        {
+            dc.drawBitmap(position.x, position.y, bitmap);
+        }
     }
 }

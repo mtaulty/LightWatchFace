@@ -7,4 +7,5 @@ class LayoutConstants
     static const DatePosition = new Rect(104, 135);
     static const BluetoothPosition = new Rect(50, 50);
     static const NotificationsPosition = new Rect(140, 52);
+    static const StepsCaloriesDistancePosition = new Rect(104,160);
 }
