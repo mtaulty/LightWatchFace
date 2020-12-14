@@ -30,4 +30,16 @@
         </settingConfig>
     </setting>
 
+    <setting propertyKey="@Properties.DateTimeColour" title="@Strings.DateTimeColourTitle">
+        <settingConfig type="list">
+            <listEntry value="0xFFFFFF">@Strings.ColourWhite</listEntry>
+            <listEntry value="0xAA0000">@Strings.ColourRed</listEntry>
+            <listEntry value="0x00AA00">@Strings.ColourGreen</listEntry>
+            <listEntry value="0x0000AA">@Strings.ColourBlue</listEntry>
+            <listEntry value="0x55FFFF">@Strings.ColourCyan</listEntry>
+            <listEntry value="0xFFFF55">@Strings.ColourYellow</listEntry>
+            <listEntry value="0xFF55FF">@Strings.ColourMagenta</listEntry>
+            <listEntry value="0x000000">@Strings.ColourBlack</listEntry>
+        </settingConfig>
+    </setting>
 </settings>

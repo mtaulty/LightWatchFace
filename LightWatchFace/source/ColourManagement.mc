@@ -23,7 +23,9 @@ class ColourManagement
     }
     static function getDateColour()
     {
-        return(Graphics.COLOR_DK_GREEN);
+        var settingsColour = LightWatchFaceApp.getProperty(PropertyConstants.DateTimeColour);
+
+        return(settingsColour);
     }
     private static function IsLightTheme()
     {

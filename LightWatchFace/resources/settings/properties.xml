@@ -5,5 +5,6 @@
     <property id="MediumBatteryThreshold" type="number">20</property>
     <property id="LowBatteryThreshold" type="number">5</property>
     <property id="MetricsDisplay" type="number">3</property>
+    <property id="DateTimeColour" type="number">0x00AA00</property>
 
 </properties>

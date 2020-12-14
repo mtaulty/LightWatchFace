@@ -14,4 +14,15 @@
     <string id="MetricsDistance">Distance</string>
     <string id="MetricsAll">All</string>
     <string id="MetricsNone">None</string>
+
+    <string id="DateTimeColourTitle">Colour for Date Time</string>
+    <string id="ColourGreen">Green</string>
+    <string id="ColourBlue">Blue</string>
+    <string id="ColourRed">Red</string>
+    <string id="ColourYellow">Yellow</string>
+    <string id="ColourCyan">Cyan</string>
+    <string id="ColourMagenta">Magenta</string>
+    <string id="ColourWhite">White</string>
+    <string id="ColourBlack">Black</string>
+
 </strings>
