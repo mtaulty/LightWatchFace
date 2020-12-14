@@ -20,4 +20,14 @@
         </settingConfig>
     </setting>
 
+     <setting propertyKey="@Properties.MetricsDisplay" title="@Strings.MetricsDisplayTitle">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.MetricsSteps</listEntry>
+            <listEntry value="1">@Strings.MetricsDistance</listEntry>
+            <listEntry value="2">@Strings.MetricsCalories</listEntry>
+            <listEntry value="3">@Strings.MetricsAll</listEntry>
+            <listEntry value="4">@Strings.MetricsNone</listEntry>
+        </settingConfig>
+    </setting>
+
 </settings>

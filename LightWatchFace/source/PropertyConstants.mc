@@ -7,4 +7,5 @@ class PropertyConstants
     static var HighBatteryThreshold = "HighBatteryThreshold";
     static var MediumBatteryThreshold = "MediumBatteryThreshold";
     static var LowBatteryThreshold = "LowBatteryThreshold";
+    static var MetricsDisplay = "MetricsDisplay";
 }

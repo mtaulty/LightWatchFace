@@ -8,4 +8,10 @@
     <string id="MediumBatteryThresholdTitle">Medium Battery Threshold</string>
     <string id="LowBatteryThresholdTitle">Low Battery Threshold</string>
 
+    <string id="MetricsDisplayTitle">Metrics to Display</string>
+    <string id="MetricsSteps">Step Count</string>
+    <string id="MetricsCalories">Calories</string>
+    <string id="MetricsDistance">Distance</string>
+    <string id="MetricsAll">All</string>
+    <string id="MetricsNone">None</string>
 </strings>

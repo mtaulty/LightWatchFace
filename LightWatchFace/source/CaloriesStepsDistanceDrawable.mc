@@ -16,8 +16,8 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
         self.drawMethods =
         [
             self.method(:drawSteps),
-            self.method(:drawCalories),
-            self.method(:drawDistance)
+            self.method(:drawDistance),
+            self.method(:drawCalories),            
         ];
         self.tickCount = new WrapAroundCounter(self.drawMethods.size(), CALLS_BETWEEN_TICKS);
 
@@ -25,17 +25,24 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     }
     function draw(dc) 
     {
-        var drawMethod = self.drawMethods[0];
-        var info = ActivityMonitor.getInfo();
-
-        if (self.highPower)
+        if (IsDisplayed())
         {
-            drawMethod = self.drawMethods[self.tickCount.getValue()];
+            var drawMethod = self.drawMethods[0];
 
-            self.tickCount.increment();
+            if (IsDisplayingAll())
+            {
+                if (self.highPower)
+                {
+                    drawMethod = self.drawMethods[self.tickCount.getValue()];
+                    self.tickCount.increment();
+                }
+            }
+            else
+            {
+                drawMethod = self.drawMethods[GetDisplayType()];
+            }         
+            drawMethod.invoke(dc, ActivityMonitor.getInfo());
         }
-        dc.setColor(ColourManagement.getTimeColour(), Graphics.COLOR_TRANSPARENT);
-        drawMethod.invoke(dc, info);
     }
     function onEnterSleep()
     {
@@ -43,7 +50,7 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     }
     function onExitSleep()
     {
-        self.highPower = true;
+        self.highPower = true;        
         self.tickCount.setValue(0);
     }
     // It seems that if these next 3 methods aren't public (I'd like then to be private)
@@ -53,9 +60,13 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
         // Steps and stepgoal are number of steps for the day.
         var hitGoal = info.steps >= info.stepGoal;
         var colour = hitGoal ? ColourManagement.getStepGoalColour() : 
-            ColourManagement.getTimeColour();
+            ColourManagement.getCaloriesStepsDistanceColour();
 
-        self.drawValue(dc, info.steps.toString(), colour);
+        self.drawValue(
+            dc, 
+            info.steps.format(STEPS_FORMAT_STRING), 
+            colour, 
+            ColourManagement.getStepsBitmap(hitGoal));
     }
     function drawDistance(dc, info)
     {
@@ -70,18 +81,31 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
 
         distance += metric ? KMS : MILES;
 
-        self.drawValue(dc, distance, ColourManagement.getTimeColour());
+        self.drawValue(
+            dc, 
+            distance,
+            ColourManagement.getCaloriesStepsDistanceColour(), 
+            ColourManagement.getDistanceBitmap());
     }
     function drawCalories(dc, info)
     {
         var calories = info.calories.format(CALORIES_FORMAT_STRING) + KCAL;
 
         // Calories are reported in kCal for the day.
-        self.drawValue(dc, calories, ColourManagement.getTimeColour());
+        self.drawValue(
+            dc, 
+            calories,
+            ColourManagement.getCaloriesStepsDistanceColour(), 
+            ColourManagement.getCaloriesBitmap());
     }
-    function drawValue(dc, value, colour)
+    private function drawValue(dc, value, colour, bitmap)
     {
         dc.setColor(colour, Graphics.COLOR_TRANSPARENT);
+
+        var textSize = dc.getTextDimensions(value, Graphics.FONT_SYSTEM_TINY);
+        var textWidth = textSize[0];
+        var textHeight = textSize[1];
+        var rightEnd = LayoutConstants.StepsCaloriesDistancePosition.x + (textWidth / 2);        
 
         dc.drawText(
             LayoutConstants.StepsCaloriesDistancePosition.x, 
@@ -89,6 +113,23 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
             Graphics.FONT_SYSTEM_TINY,  
             value, 
             Graphics.TEXT_JUSTIFY_CENTER);   
+
+        dc.drawBitmap(
+            rightEnd,
+            LayoutConstants.StepsCaloriesDistancePosition.y,
+            bitmap);
+    }
+    private static function GetDisplayType()
+    {
+        return(LightWatchFaceApp.getProperty(PropertyConstants.MetricsDisplay));
+    }
+    private static function IsDisplayed()
+    {
+        return(GetDisplayType() != DISPLAY_TYPE_NONE); 
+    }
+    private static function IsDisplayingAll()
+    {
+        return(GetDisplayType() == DISPLAY_TYPE_ALL);
     }
     private var drawMethods;
     private var highPower = true;
@@ -97,8 +138,11 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     private const CALLS_BETWEEN_TICKS = 2;
     private const KM_TO_MILES = 160934.0;
     private const DISTANCE_FORMAT_STRING = "%01.2f";
-    private const CALORIES_FORMAT_STRING = "%05d";
-    private const MILES = "mi";
-    private const KMS = "km";
-    private const KCAL = "kCal";
+    private const CALORIES_FORMAT_STRING = "%d";
+    private const STEPS_FORMAT_STRING = "%d";
+    private const MILES = " mi";
+    private const KMS = " km";
+    private const KCAL = " kCal";
+    private const DISPLAY_TYPE_NONE = 4;
+    private const DISPLAY_TYPE_ALL = 3;
 }

@@ -4,5 +4,6 @@
     <property id="HighBatteryThreshold" type="number">50</property>
     <property id="MediumBatteryThreshold" type="number">20</property>
     <property id="LowBatteryThreshold" type="number">5</property>
+    <property id="MetricsDisplay" type="number">3</property>
 
 </properties>

@@ -5,6 +5,10 @@ using Toybox.WatchUi;
 
 class ColourManagement
 {
+    static function getCaloriesStepsDistanceColour()
+    {
+        return(getTimeColour());
+    }
     static function getStepGoalColour()
     {
         return(Graphics.COLOR_DK_GREEN);
@@ -23,7 +27,6 @@ class ColourManagement
     }
     private static function IsLightTheme()
     {
-        // return(true);
         return(LightWatchFaceApp.getProperty(PropertyConstants.LightTheme));
     }
     static function getHeartBitmap()
@@ -42,9 +45,11 @@ class ColourManagement
     {
         return(getBitmapById(Rez.Drawables.bmpCalories));
     }
-    static function getStepsBitmap()
+    static function getStepsBitmap(goalHit)
     {
-        return(getBitmapById(Rez.Drawables.bmpSteps));
+        var id = goalHit ? Rez.Drawables.bmpStepsGoal : Rez.Drawables.bmpSteps;
+
+        return(getBitmapById(id));
     }
     static function getDistanceBitmap()
     {
@@ -72,6 +77,7 @@ class ColourManagement
         Rez.Drawables.bmpBluetooth      => Rez.Drawables.bmpBluetoothLight,
         Rez.Drawables.bmpSteps          => Rez.Drawables.bmpStepsLight,
         Rez.Drawables.bmpCalories       => Rez.Drawables.bmpCaloriesLight,
-        Rez.Drawables.bmpDistance       => Rez.Drawables.bmpDistanceLight
+        Rez.Drawables.bmpDistance       => Rez.Drawables.bmpDistanceLight,
+        Rez.Drawables.bmpStepsGoal      => Rez.Drawables.bmpStepsGoal
     };
 }

@@ -16,4 +16,5 @@
     <bitmap id="bmpSteps" filename="steps.png"/>
     <bitmap id="bmpDistanceLight" filename="distanceLight.png"/>
     <bitmap id="bmpDistance" filename="distance.png"/>
+    <bitmap id="bmpStepsGoal" filename="stepsGoal.png"/>
 </drawables>
