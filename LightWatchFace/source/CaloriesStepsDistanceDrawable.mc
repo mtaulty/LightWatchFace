@@ -4,34 +4,43 @@ using Toybox.Graphics;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
-class CaloriesStepsDistanceDrawable extends WatchUi.Drawable {
-
+class CaloriesStepsDistanceDrawable extends WatchUi.Drawable 
+{
     function initialize() 
     {
         var dictionary = 
         {
             :identifier => ID
         };
+
+        // self.drawMethods =
+        // [
+        //     method(:drawSteps),
+        //     method(:drawCalories),
+        //     method(:drawDistance)
+        // ];
         Drawable.initialize(dictionary);
     }
-
     function draw(dc) 
     {
+        var drawMethod = self.drawMethods[0];
+
         if (self.highPower)
         {
-            self.tickCount++;
+            self.tickCount.increment();
 
-            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            // drawMethod = self.drawMethods[self.tickCount.value];
 
-            dc.drawText(
-                104, 
-                160, 
-                Graphics.FONT_SYSTEM_TINY,  
-                self.tickCount.toString(), 
-                Graphics.TEXT_JUSTIFY_CENTER);
+            // dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+
+            // dc.drawText(
+            //     104, 
+            //     160, 
+            //     Graphics.FONT_SYSTEM_TINY,  
+            //     self.tickCount.toString(), 
+            //     Graphics.TEXT_JUSTIFY_CENTER);
         }
     }
-
     function onEnterSleep()
     {
         self.highPower = false;
@@ -41,7 +50,20 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable {
         self.highPower = true;
         self.tickCount = 0;
     }
-    var highPower = true;
-    var tickCount = 0;
+    private function drawSteps(dc)
+    {
+        System.println("drawSteps");
+    }
+    private function drawDistance(dc)
+    {
+        System.println("drawDistance");
+    }
+    private function drawCalories(dc)
+    {
+        System.println("drawCalories");
+    }
+    private var drawMethods;
+    private var highPower = true;
+    private var tickCount = new WrapAroundCounter(drawMethods.size());
     static var ID = "CaloriesStepDistance";
 }

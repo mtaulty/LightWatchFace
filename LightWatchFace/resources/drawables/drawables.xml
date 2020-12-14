@@ -10,8 +10,8 @@
     <bitmap id="bmpNotifications" filename="notifications.png"/>
     <bitmap id="bmpBluetoothLight" filename="bluetoothLight.png"/>
     <bitmap id="bmpNotificationsLight" filename="notificationsLight.png"/>
-    <bitmap id="bmpCaloriesLight" filename="caloriesLight.png"/>
+    <!-- <bitmap id="bmpCaloriesLight" filename="caloriesLight.png"/>
     <bitmap id="bmpCalories" filename="calories.png"/>
     <bitmap id="bmpStepsLight" filename="stepsLight.png"/>
-    <bitmap id="bmpSteps" filename="steps.png"/>
+    <bitmap id="bmpSteps" filename="steps.png"/> -->
 </drawables>
