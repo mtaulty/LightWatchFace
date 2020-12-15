@@ -1,4 +1,4 @@
-# Clear Forerunner 45 Watch Face
+# Clear Forerunner 45 Face
 I have a [Garmin](http://www.garmin.com) watch which I use for running and other sports. It's a [Forerunner 45S](https://buy.garmin.com/en-GB/GB/p/682416) and while that's one of their more basic models I've had it for almost a year now and I really like it and find it very useful.
 
 I've tended to customise the display (or "Watch Face") on the device since day 1 and Garmin has [an online store](https://apps.garmin.com/en-GB/devices/fenix3/appTypes/watchface/apps) where you can download different faces.
