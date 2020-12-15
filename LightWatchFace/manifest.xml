@@ -10,8 +10,16 @@
         https://forums.garmin.com/developer/connect-iq/f/discussion/164539/updated-device-list/896008#896008 
         which suggested that the Forerunner 45 was on 1.4 plus when I selected later SDKs (specifically 3.x)
         I found that the tooling didn't offer me the Forerunner 45 as a possible target. 
+
+        GUID used for development 767316ba-39c2-4916-afc7-d1456a04b47e
     -->
-    <iq:application id="767316ba-39c2-4916-afc7-d1456a04b47e" type="watchface" name="@Strings.AppName" entry="LightWatchFaceApp" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="1.4.0">
+    <iq:application id="84ef069f-19ef-4356-bbba-5ea9fd83a50f" 
+        type="watchface" 
+        name="@Strings.AppName" 
+        entry="LightWatchFaceApp" 
+        launcherIcon="@Drawables.LauncherIcon" 
+        minS
+        dkVersion="1.4.0">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
