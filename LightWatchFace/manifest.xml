@@ -18,7 +18,7 @@
         name="@Strings.AppName" 
         entry="LightWatchFaceApp" 
         launcherIcon="@Drawables.LauncherIcon"         
-        dkVersion="1.4.0">
+        minSdkVersion="1.4.0">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:
