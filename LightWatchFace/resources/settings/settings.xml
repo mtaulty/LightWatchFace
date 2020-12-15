@@ -1,8 +1,6 @@
 <settings>
-
     <setting propertyKey="@Properties.LightTheme" title="@Strings.LightThemeTitle">
-        <settingConfig type="boolean">
-        </settingConfig>
+        <settingConfig type="boolean"/>
     </setting>
 
     <setting propertyKey="@Properties.HighBatteryThreshold" title="@Strings.HighBatteryThresholdTitle">
@@ -30,8 +28,69 @@
         </settingConfig>
     </setting>
 
-    <setting propertyKey="@Properties.DateTimeColour" title="@Strings.DateTimeColourTitle">
+    <setting propertyKey="@Properties.DisplayHeartRate" title="@Strings.DisplayHeartRateTitle">
+        <settingConfig type="boolean"/>
+    </setting>
+
+    <setting propertyKey="@Properties.BackgroundColour" title="@Strings.BackgroundColourTitle">
         <settingConfig type="list">
+            <listEntry value="0x00C0DE">@Strings.ColourTheme</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColourWhite</listEntry>
+            <listEntry value="0xAA0000">@Strings.ColourRed</listEntry>
+            <listEntry value="0x00AA00">@Strings.ColourGreen</listEntry>
+            <listEntry value="0x0000AA">@Strings.ColourBlue</listEntry>
+            <listEntry value="0x55FFFF">@Strings.ColourCyan</listEntry>
+            <listEntry value="0xFFFF55">@Strings.ColourYellow</listEntry>
+            <listEntry value="0xFF55FF">@Strings.ColourMagenta</listEntry>
+            <listEntry value="0x000000">@Strings.ColourBlack</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.TimeColour" title="@Strings.TimeColourTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00C0DE">@Strings.ColourTheme</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColourWhite</listEntry>
+            <listEntry value="0xAA0000">@Strings.ColourRed</listEntry>
+            <listEntry value="0x00AA00">@Strings.ColourGreen</listEntry>
+            <listEntry value="0x0000AA">@Strings.ColourBlue</listEntry>
+            <listEntry value="0x55FFFF">@Strings.ColourCyan</listEntry>
+            <listEntry value="0xFFFF55">@Strings.ColourYellow</listEntry>
+            <listEntry value="0xFF55FF">@Strings.ColourMagenta</listEntry>
+            <listEntry value="0x000000">@Strings.ColourBlack</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.DateColour" title="@Strings.DateColourTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00C0DE">@Strings.ColourTheme</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColourWhite</listEntry>
+            <listEntry value="0xAA0000">@Strings.ColourRed</listEntry>
+            <listEntry value="0x00AA00">@Strings.ColourGreen</listEntry>
+            <listEntry value="0x0000AA">@Strings.ColourBlue</listEntry>
+            <listEntry value="0x55FFFF">@Strings.ColourCyan</listEntry>
+            <listEntry value="0xFFFF55">@Strings.ColourYellow</listEntry>
+            <listEntry value="0xFF55FF">@Strings.ColourMagenta</listEntry>
+            <listEntry value="0x000000">@Strings.ColourBlack</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.MetricsColour" title="@Strings.MetricsColourTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00C0DE">@Strings.ColourTheme</listEntry>
+            <listEntry value="0xFFFFFF">@Strings.ColourWhite</listEntry>
+            <listEntry value="0xAA0000">@Strings.ColourRed</listEntry>
+            <listEntry value="0x00AA00">@Strings.ColourGreen</listEntry>
+            <listEntry value="0x0000AA">@Strings.ColourBlue</listEntry>
+            <listEntry value="0x55FFFF">@Strings.ColourCyan</listEntry>
+            <listEntry value="0xFFFF55">@Strings.ColourYellow</listEntry>
+            <listEntry value="0xFF55FF">@Strings.ColourMagenta</listEntry>
+            <listEntry value="0x000000">@Strings.ColourBlack</listEntry>
+        </settingConfig>
+    </setting>
+
+    <setting propertyKey="@Properties.HeartRateColour" title="@Strings.HeartRateColourTitle">
+        <settingConfig type="list">
+            <listEntry value="0x00C0DE">@Strings.ColourTheme</listEntry>
             <listEntry value="0xFFFFFF">@Strings.ColourWhite</listEntry>
             <listEntry value="0xAA0000">@Strings.ColourRed</listEntry>
             <listEntry value="0x00AA00">@Strings.ColourGreen</listEntry>

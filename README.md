@@ -78,7 +78,7 @@ The app should run on the simulator and look something like this;
 
 At the time of writing, this is a very simple watch face which tries to display time, date, heartrate, battery status, phone connection & whether there are any notifications for the user.
 
-There are settings to display the face with either a dark/light theme and also to control at which thresholds of remaining battery life the face will display each of its 4 battery indicators.
+There are settings to display the face with either a dark/light theme and also to control at which thresholds of remaining battery life the face will display each of its 4 battery indicators. The user can also be more granular and choose colours for most of the text fields if they wish to.
 
 ## Notes, Tips, Etc.
 
@@ -99,3 +99,5 @@ I also made a lot of reference to the Garmin SDK notes and in particular I kept 
 and then [the reference](https://developer.garmin.com/connect-iq/api-docs/) section.
 
 I also found the [Community Forums](https://forums.garmin.com/developer/connect-iq/f/discussion) really useful - there are lots of people in there with a lot of knowledge about building these watch faces.
+
+In terms of how I built the app, I probably wrote more code than I needed to in that fairly early on I decided to simply make each display its own custom **Drawable** and so everything is just drawn with code rather than trying to take much advantage of the **layout** capabilities already in the framework. I'm sure there's better ways to do things but it was just for fun :-)

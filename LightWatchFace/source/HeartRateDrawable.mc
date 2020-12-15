@@ -16,41 +16,56 @@ class HeartRateDrawable extends WatchUi.Drawable
 
     function draw(dc)
     {
-        dc.drawBitmap(
-            LayoutConstants.HeartPosition.x,
-            LayoutConstants.HeartPosition.y,
-            ColourManagement.getHeartBitmap());
+        if (IsDisplayed())
+        {
+            dc.drawBitmap(
+                LayoutConstants.HeartPosition.x,
+                LayoutConstants.HeartPosition.y,
+                ColourManagement.getHeartBitmap());
 
-        dc.setColor(ColourManagement.getBackgroundColor(), Graphics.COLOR_TRANSPARENT);
-        
-        dc.drawText(
-            LayoutConstants.HeartRatePosition.x, 
-            LayoutConstants.HeartRatePosition.y, 
-            Graphics.FONT_NUMBER_MILD,  
-            self.getHeartRateString(), 
-            Graphics.TEXT_JUSTIFY_CENTER);
+            dc.setColor(ColourManagement.getHeartRateColour(), Graphics.COLOR_TRANSPARENT);
+            
+            dc.drawText(
+                LayoutConstants.HeartRatePosition.x, 
+                LayoutConstants.HeartRatePosition.y, 
+                Graphics.FONT_NUMBER_MILD,  
+                self.getHeartRateString(), 
+                Graphics.TEXT_JUSTIFY_CENTER);
+        }
     }
     function getHeartRateString() 
     {
         var heartRateString = "-";
         
-        var heartRate = Activity.getActivityInfo().currentHeartRate;
+        var info = Activity.getActivityInfo();
 
-        if (heartRate != null) 
+        if (info != null)
         {
-            heartRateString = heartRate.toString();
-        } 
-        else 
-        {
-            var topHistory = ActivityMonitor.getHeartRateHistory(1, true);
+            var heartRate = info.currentHeartRate;
 
-            var historySample = topHistory.next().heartRate;
-
-            if ((historySample != null) && (historySample != ActivityMonitor.INVALID_HR_SAMPLE))
+            if (heartRate != null) 
             {
-                 heartRateString = historySample.toString();
+                heartRateString = heartRate.toString();
+            } 
+            else 
+            {
+                var topHistory = ActivityMonitor.getHeartRateHistory(1, true);
+
+                if (topHistory != null)
+                {
+                    var historySample = topHistory.next().heartRate;
+
+                    if ((historySample != null) && (historySample != ActivityMonitor.INVALID_HR_SAMPLE))
+                    {
+                        heartRateString = historySample.toString();
+                    }
+                }
             }
         }
         return(heartRateString);
+    }
+    static function IsDisplayed()
+    {
+        return(LightWatchFaceApp.getProperty(PropertyConstants.DisplayHeartRate));
     }
 }

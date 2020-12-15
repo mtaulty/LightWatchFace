@@ -4,8 +4,8 @@
 
     <string id="LightThemeTitle">Use Light Theme</string>
 
-    <string id="HighBatteryThresholdTitle">High Battery Threshold</string>
-    <string id="MediumBatteryThresholdTitle">Medium Battery Threshold</string>
+    <string id="HighBatteryThresholdTitle">Good Battery Threshold</string>
+    <string id="MediumBatteryThresholdTitle">OK Battery Threshold</string>
     <string id="LowBatteryThresholdTitle">Low Battery Threshold</string>
 
     <string id="MetricsDisplayTitle">Metrics to Display</string>
@@ -15,7 +15,13 @@
     <string id="MetricsAll">All</string>
     <string id="MetricsNone">None</string>
 
-    <string id="DateTimeColourTitle">Colour for Date Time</string>
+    <string id="DateColourTitle">Date Colour</string>
+    <string id="TimeColourTitle">Time Colour</string>
+    <string id="MetricsColourTitle">Metrics Colour</string>
+    <string id="BackgroundColourTitle">Background Colour</string>
+    <string id="HeartRateColourTitle">Heart Rate Colour</string>
+    <string id="DisplayHeartRateTitle">Display Heart Rate</string>
+
     <string id="ColourGreen">Green</string>
     <string id="ColourBlue">Blue</string>
     <string id="ColourRed">Red</string>
@@ -24,5 +30,7 @@
     <string id="ColourMagenta">Magenta</string>
     <string id="ColourWhite">White</string>
     <string id="ColourBlack">Black</string>
+    <string id="ColourTheme">Default for Theme</string>
+
 
 </strings>

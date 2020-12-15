@@ -8,5 +8,11 @@ class PropertyConstants
     static var MediumBatteryThreshold = "MediumBatteryThreshold";
     static var LowBatteryThreshold = "LowBatteryThreshold";
     static var MetricsDisplay = "MetricsDisplay";
-    static var DateTimeColour = "DateTimeColour";
+    static var DateColour = "DateColour";
+    static var TimeColour = "TimeColour";
+    static var BackgroundColour = "BackgroundColour";
+    static var MetricsColour = "MetricsColour";
+    static var HeartRateColour = "HeartRateColour";
+    static var ThemeColour = 0x00C0DE;
+    static var DisplayHeartRate = "DisplayHeartRate";
 }

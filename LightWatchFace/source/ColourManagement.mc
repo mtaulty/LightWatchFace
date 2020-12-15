@@ -5,27 +5,44 @@ using Toybox.WatchUi;
 
 class ColourManagement
 {
-    static function getCaloriesStepsDistanceColour()
+    static function getBackgroundColour()
     {
-        return(getTimeColour());
-    }
-    static function getStepGoalColour()
-    {
-        return(Graphics.COLOR_DK_GREEN);
-    }
-    static function getBackgroundColor()
-    {
-        return(IsLightTheme() ? Graphics.COLOR_WHITE : Graphics.COLOR_BLACK);  
+        return(getSettableColour(PropertyConstants.BackgroundColour, true));
     }
     static function getTimeColour()
     {
-        return(IsLightTheme() ? Graphics.COLOR_BLACK : Graphics.COLOR_WHITE);     
+        return(getSettableColour(PropertyConstants.TimeColour, false));
     }
     static function getDateColour()
     {
-        var settingsColour = LightWatchFaceApp.getProperty(PropertyConstants.DateTimeColour);
+        return(getSettableColour(PropertyConstants.DateColour, false));
+    }
+    static function getMetricsColour()
+    {
+        return(getSettableColour(PropertyConstants.MetricsColour, false));
+    }
+    static function getHeartRateColour()
+    {
+        return(getSettableColour(PropertyConstants.HeartRateColour, true));
+    }
+    private static function getSettableColour(propertyId, isInverse)
+    {
+        var colour = LightWatchFaceApp.getProperty(propertyId);
 
-        return(settingsColour);
+        if (colour == PropertyConstants.ThemeColour)
+        {
+            colour = IsLightTheme() ? Graphics.COLOR_BLACK : Graphics.COLOR_WHITE;
+
+            if (isInverse)
+            {
+                colour = InvertColour(colour);
+            }
+        }
+        return(colour);
+    }
+    private static function InvertColour(colour)
+    {
+        return(colour == Graphics.COLOR_WHITE ? Graphics.COLOR_BLACK : Graphics.COLOR_WHITE);
     }
     private static function IsLightTheme()
     {
@@ -80,6 +97,6 @@ class ColourManagement
         Rez.Drawables.bmpSteps          => Rez.Drawables.bmpStepsLight,
         Rez.Drawables.bmpCalories       => Rez.Drawables.bmpCaloriesLight,
         Rez.Drawables.bmpDistance       => Rez.Drawables.bmpDistanceLight,
-        Rez.Drawables.bmpStepsGoal      => Rez.Drawables.bmpStepsGoal
+        Rez.Drawables.bmpStepsGoal      => Rez.Drawables.bmpStepsGoal // bit of a hack, same bitmap (green) for both themes
     };
 }

@@ -57,23 +57,36 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     // then I can't use Method.invoke() to invoke them. So, they are public
     function drawSteps(dc, info)
     {
-        // Steps and stepgoal are number of steps for the day.
-        var hitGoal = info.steps >= info.stepGoal;
-        var colour = hitGoal ? ColourManagement.getStepGoalColour() : 
-            ColourManagement.getCaloriesStepsDistanceColour();
+        var hitGoal = false;
+        var steps = 0;
 
+        if ((info != null) && (info.steps != null))
+        {
+            steps = info.steps;
+
+            if (info.stepGoal != null)
+            {
+                hitGoal = info.steps >= info.stepGoal;
+            }
+        }
         self.drawValue(
             dc, 
-            info.steps.format(STEPS_FORMAT_STRING), 
-            colour, 
+            steps.format(STEPS_FORMAT_STRING), 
             ColourManagement.getStepsBitmap(hitGoal));
     }
     function drawDistance(dc, info)
     {
-        // Distance is reported in cm for the day.
-        var distanceKms = info.distance / 100000.0;
-        var distanceMiles = info.distance / KM_TO_MILES;
+        var distanceKms = 0;
+        var distanceMiles = 0;
+
+        if ((info != null) && (info.distance != null))
+        {
+            // Distance is reported in cm for the day.
+            distanceKms = info.distance / 100000.0;
+            distanceMiles = info.distance / KM_TO_MILES;
+        }
         var metric = System.getDeviceSettings().distanceUnits == System.UNIT_METRIC;
+        
         var distance = 
             metric ? 
                 distanceKms.format(DISTANCE_FORMAT_STRING) : 
@@ -84,33 +97,38 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
         self.drawValue(
             dc, 
             distance,
-            ColourManagement.getCaloriesStepsDistanceColour(), 
             ColourManagement.getDistanceBitmap());
     }
     function drawCalories(dc, info)
     {
-        var calories = info.calories.format(CALORIES_FORMAT_STRING) + KCAL;
+        var calories = 0;
+
+        if ((info != null) && (info.calories != null))
+        {
+            calories = info.calories.format(CALORIES_FORMAT_STRING) + KCAL;
+        }
 
         // Calories are reported in kCal for the day.
         self.drawValue(
             dc, 
             calories,
-            ColourManagement.getCaloriesStepsDistanceColour(), 
             ColourManagement.getCaloriesBitmap());
     }
-    private function drawValue(dc, value, colour, bitmap)
+    private function drawValue(dc, value, bitmap)
     {
-        dc.setColor(colour, Graphics.COLOR_TRANSPARENT);
+        var font = Graphics.FONT_SYSTEM_MEDIUM;
+
+        dc.setColor(ColourManagement.getMetricsColour(), Graphics.COLOR_TRANSPARENT);
 
         dc.drawText(
             LayoutConstants.StepsCaloriesDistancePosition.x, 
             LayoutConstants.StepsCaloriesDistancePosition.y, 
-            Graphics.FONT_SYSTEM_MEDIUM,  
+            font,  
             value, 
             Graphics.TEXT_JUSTIFY_CENTER);   
 
         // Figure out where to put the bitmap to the right of that text
-        var textDimensions = dc.getTextDimensions(value, Graphics.FONT_SYSTEM_TINY);
+        var textDimensions = dc.getTextDimensions(value, font);
         var textWidth = textDimensions[0];
         var textHeight = textDimensions[1];
         var textRightX = 
@@ -120,7 +138,7 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
         var bitmapVerticalOffset = (textHeight - bitmapHeight) / 2;
 
         dc.drawBitmap(
-            textRightX + BITMAP_PADDING_X,
+            textRightX,
             LayoutConstants.StepsCaloriesDistancePosition.y + bitmapVerticalOffset,
             bitmap);
     }
@@ -150,5 +168,4 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     private const KCAL = " kCal";
     private const DISPLAY_TYPE_NONE = 4;
     private const DISPLAY_TYPE_ALL = 3;
-    private const BITMAP_PADDING_X = 6;
 }

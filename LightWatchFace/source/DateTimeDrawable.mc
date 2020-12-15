@@ -20,7 +20,7 @@ class DateTimeDrawable extends WatchUi.Drawable {
 
     function draw(dc) 
     {
-        dc.setColor(Graphics.COLOR_TRANSPARENT, ColourManagement.getBackgroundColor());
+        dc.setColor(Graphics.COLOR_TRANSPARENT, ColourManagement.getBackgroundColour());
         dc.clear();
         
         dc.setColor(ColourManagement.getTimeColour(), Graphics.COLOR_TRANSPARENT);

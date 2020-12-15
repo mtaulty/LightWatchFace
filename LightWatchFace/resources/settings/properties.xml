@@ -5,6 +5,11 @@
     <property id="MediumBatteryThreshold" type="number">20</property>
     <property id="LowBatteryThreshold" type="number">5</property>
     <property id="MetricsDisplay" type="number">3</property>
-    <property id="DateTimeColour" type="number">0x00AA00</property>
+    <property id="DateColour" type="number">0x00AA00</property>
+    <property id="TimeColour" type="number">0x00C0DE</property>
+    <property id="MetricsColour" type="number">0x00C0DE</property>
+    <property id="BackgroundColour" type="number">0x00C0DE</property>
+    <property id="HeartRateColour" type="number">0x00C0DE</property>
+    <property id="DisplayHeartRate" type="boolean">true</property>
 
 </properties>
