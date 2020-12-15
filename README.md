@@ -1,4 +1,5 @@
 # Clear Forerunner 45 Face
+
 I have a [Garmin](http://www.garmin.com) watch which I use for running and other sports. It's a [Forerunner 45S](https://buy.garmin.com/en-GB/GB/p/682416) and while that's one of their more basic models I've had it for almost a year now and I really like it and find it very useful.
 
 I've tended to customise the display (or "Watch Face") on the device since day 1 and Garmin has [an online store](https://apps.garmin.com/en-GB/devices/fenix3/appTypes/watchface/apps) where you can download different faces.
@@ -86,24 +87,23 @@ A few screenshots which I used as part of my store submission;
 
 Basic "dark" theme with all fields displayed;
 
-![Sub1](./Images/Sub1.jpg)
+![shot](./Images/sub1.jpg)
 
 Changing the background colour and taking away the heartrate and metrics display;
 
-![Sub2](./Images/Sub2.jpg)
+![shot](./Images/sub2.jpg)
 
 Basic light theme display;
 
-![Sub3](./Images/Sub3.jpg)
-
+![shot](./Images/sub3.jpg)
 
 Dark theme display with colours changed for time, date and heart rate;
 
-![Sub4](./Images/Sub4.jpg)
+![shot](./Images/sub4.jpg)
 
 Settings display;
 
-![Sub5](./Images/Sub5.png)
+![shot](./Images/sub5.png)
 
 ## Notes, Tips, Etc.
 
