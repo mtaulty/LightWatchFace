@@ -102,21 +102,26 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     {
         dc.setColor(colour, Graphics.COLOR_TRANSPARENT);
 
-        var textSize = dc.getTextDimensions(value, Graphics.FONT_SYSTEM_TINY);
-        var textWidth = textSize[0];
-        var textHeight = textSize[1];
-        var rightEnd = LayoutConstants.StepsCaloriesDistancePosition.x + (textWidth / 2);        
-
         dc.drawText(
             LayoutConstants.StepsCaloriesDistancePosition.x, 
             LayoutConstants.StepsCaloriesDistancePosition.y, 
-            Graphics.FONT_SYSTEM_SMALL,  
+            Graphics.FONT_SYSTEM_MEDIUM,  
             value, 
             Graphics.TEXT_JUSTIFY_CENTER);   
 
+        // Figure out where to put the bitmap to the right of that text
+        var textDimensions = dc.getTextDimensions(value, Graphics.FONT_SYSTEM_TINY);
+        var textWidth = textDimensions[0];
+        var textHeight = textDimensions[1];
+        var textRightX = 
+            LayoutConstants.StepsCaloriesDistancePosition.x + (textWidth / 2);   
+
+        var bitmapHeight = bitmap.getHeight();
+        var bitmapVerticalOffset = (textHeight - bitmapHeight) / 2;
+
         dc.drawBitmap(
-            rightEnd,
-            LayoutConstants.StepsCaloriesDistancePosition.y,
+            textRightX + BITMAP_PADDING_X,
+            LayoutConstants.StepsCaloriesDistancePosition.y + bitmapVerticalOffset,
             bitmap);
     }
     private static function GetDisplayType()
@@ -145,4 +150,5 @@ class CaloriesStepsDistanceDrawable extends WatchUi.Drawable
     private const KCAL = " kCal";
     private const DISPLAY_TYPE_NONE = 4;
     private const DISPLAY_TYPE_ALL = 3;
+    private const BITMAP_PADDING_X = 6;
 }
