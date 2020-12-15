@@ -80,6 +80,31 @@ At the time of writing, this is a very simple watch face which tries to display 
 
 There are settings to display the face with either a dark/light theme and also to control at which thresholds of remaining battery life the face will display each of its 4 battery indicators. The user can also be more granular and choose colours for most of the text fields if they wish to.
 
+## Screenshots
+
+A few screenshots which I used as part of my store submission;
+
+Basic "dark" theme with all fields displayed;
+
+![Sub1](./Images/Sub1.jpg)
+
+Changing the background colour and taking away the heartrate and metrics display;
+
+![Sub2](./Images/Sub2.jpg)
+
+Basic light theme display;
+
+![Sub3](./Images/Sub3.jpg)
+
+
+Dark theme display with colours changed for time, date and heart rate;
+
+![Sub4](./Images/Sub4.jpg)
+
+Settings display;
+
+![Sub5](./Images/Sub5.png)
+
 ## Notes, Tips, Etc.
 
 I was very new in coming to "Monkey C" and actually found the "C" naming confusing as it doesn't seem to be a language that's much related to C.
