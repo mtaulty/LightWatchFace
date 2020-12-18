@@ -21,6 +21,7 @@
     <string id="BackgroundColourTitle">Background Colour</string>
     <string id="HeartRateColourTitle">Heart Rate Colour</string>
     <string id="DisplayHeartRateTitle">Display Heart Rate</string>
+    <string id="HeartColourTitle">Heart Colour</string>
 
     <string id="ColourGreen">Green</string>
     <string id="ColourBlue">Blue</string>
@@ -31,6 +32,4 @@
     <string id="ColourWhite">White</string>
     <string id="ColourBlack">Black</string>
     <string id="ColourTheme">Default for Theme</string>
-
-
 </strings>

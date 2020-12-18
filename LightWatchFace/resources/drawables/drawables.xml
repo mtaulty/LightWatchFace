@@ -17,4 +17,13 @@
     <bitmap id="bmpDistanceLight" filename="distanceLight.png"/>
     <bitmap id="bmpDistance" filename="distance.png"/>
     <bitmap id="bmpStepsGoal" filename="stepsGoal.png"/>
+
+    <bitmap id="bmpHeartMagenta" filename="heartMagenta.png"/>
+    <bitmap id="bmpHeartCyan" filename="heartCyan.png"/>
+    <bitmap id="bmpHeartBlue" filename="heartBlue.png"/>
+    <bitmap id="bmpHeartRed" filename="heartRed.png"/>
+    <bitmap id="bmpHeartGreen" filename="heartGreen.png"/>
+    <bitmap id="bmpHeartYellow" filename="heartYellow.png"/>
+
+
 </drawables>

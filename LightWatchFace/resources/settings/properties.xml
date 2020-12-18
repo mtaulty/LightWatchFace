@@ -11,5 +11,5 @@
     <property id="BackgroundColour" type="number">0x00C0DE</property>
     <property id="HeartRateColour" type="number">0x00C0DE</property>
     <property id="DisplayHeartRate" type="boolean">true</property>
-
+    <property id="HeartColour" type="number">0x00C0DE</property>
 </properties>

@@ -50,42 +50,57 @@ class ColourManagement
     }
     static function getHeartBitmap()
     {
-        return(getBitmapById(Rez.Drawables.bmpHeart));
+        var setting = LightWatchFaceApp.getProperty(PropertyConstants.HeartColour);
+        var bitmap = null;
+
+        if (setting == PropertyConstants.ThemeColour)
+        {
+            bitmap = getThemedBitmapById(Rez.Drawables.bmpHeart);
+        }
+        else
+        {
+            bitmap = lazyLoadBitmap(heartBitmapLookup[setting]);
+        }
+        return(bitmap);
     }
     static function getBluetoothBitmap()
     {
-        return(getBitmapById(Rez.Drawables.bmpBluetooth));
+        return(getThemedBitmapById(Rez.Drawables.bmpBluetooth));
     }
     static function getNotificationsBitmap()
     {
-        return(getBitmapById(Rez.Drawables.bmpNotifications));
+        return(getThemedBitmapById(Rez.Drawables.bmpNotifications));
     }
     static function getCaloriesBitmap()
     {
-        return(getBitmapById(Rez.Drawables.bmpCalories));
+        return(getThemedBitmapById(Rez.Drawables.bmpCalories));
     }
     static function getStepsBitmap(goalHit)
     {
         var id = goalHit ? Rez.Drawables.bmpStepsGoal : Rez.Drawables.bmpSteps;
 
-        return(getBitmapById(id));
+        return(getThemedBitmapById(id));
     }
     static function getDistanceBitmap()
     {
-        return(getBitmapById(Rez.Drawables.bmpDistance));
+        return(getThemedBitmapById(Rez.Drawables.bmpDistance));
     }
-    private static function getBitmapById(bitmapId)
+    private static function getThemedBitmapById(bitmapId)
     {
         // Change to the light theme bitmap if necessary.
         if (IsLightTheme())
         {
             bitmapId = regularLightBitmapLookup[bitmapId];
         }
+        return(lazyLoadBitmap(bitmapId));
+    }
+    private static function lazyLoadBitmap(bitmapId)
+    {
         if (bitmapLookup[bitmapId] == null)
         {
             bitmapLookup[bitmapId] = WatchUi.loadResource(bitmapId);
         }
-        return(bitmapLookup[bitmapId]);
+        return(bitmapLookup[bitmapId]);        
     }
     private static var bitmapLookup = {};
 
@@ -98,5 +113,17 @@ class ColourManagement
         Rez.Drawables.bmpCalories       => Rez.Drawables.bmpCaloriesLight,
         Rez.Drawables.bmpDistance       => Rez.Drawables.bmpDistanceLight,
         Rez.Drawables.bmpStepsGoal      => Rez.Drawables.bmpStepsGoal // bit of a hack, same bitmap (green) for both themes
+    };
+
+    private static var heartBitmapLookup =
+    {
+        0xFFFFFF    =>  Rez.Drawables.bmpHeart,
+        0xAA0000    =>  Rez.Drawables.bmpHeartRed,
+        0x00AA00    =>  Rez.Drawables.bmpHeartGreen,
+        0x0000AA    =>  Rez.Drawables.bmpHeartBlue,
+        0x55FFFF    =>  Rez.Drawables.bmpHeartCyan,
+        0xFFFF55    =>  Rez.Drawables.bmpHeartYellow,
+        0xFF55FF    =>  Rez.Drawables.bmpHeartMagenta,
+        0x000000    =>  Rez.Drawables.bmpHeartLight
     };
 }
