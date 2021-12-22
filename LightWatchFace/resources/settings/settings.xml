@@ -116,5 +116,7 @@
         </settingConfig>
     </setting>
 
-
+    <setting propertyKey="@Properties.DisplayNotifications" title="@Strings.DisplayNotificationsTitle">
+        <settingConfig type="boolean"/>
+    </setting>
 </settings>

@@ -13,12 +13,7 @@
 
         GUID used for development 767316ba-39c2-4916-afc7-d1456a04b47e
     -->
-    <iq:application id="84ef069f-19ef-4356-bbba-5ea9fd83a50f" 
-        type="watchface" 
-        name="@Strings.AppName" 
-        entry="LightWatchFaceApp" 
-        launcherIcon="@Drawables.LauncherIcon"         
-        minSdkVersion="1.4.0">
+    <iq:application id="b67e7d59-1fbf-4ee4-8f77-833d773a85d6" type="watchface" name="@Strings.AppName" entry="LightWatchFaceApp" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="1.4.0">
         <!--
             Use the following from the Visual Studio Code comand palette to edit
             the build targets:

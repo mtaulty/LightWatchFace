@@ -16,4 +16,5 @@ class PropertyConstants
     static var ThemeColour = 0x00C0DE;
     static var DisplayHeartRate = "DisplayHeartRate";
     static var HeartColour = "HeartColour";
+    static var DisplayNotifications = "DisplayNotifications"; 
 }

@@ -32,4 +32,6 @@
     <string id="ColourWhite">White</string>
     <string id="ColourBlack">Black</string>
     <string id="ColourTheme">Default for Theme</string>
+
+    <string id="DisplayNotificationsTitle">Display Notification Count</string>
 </strings>
