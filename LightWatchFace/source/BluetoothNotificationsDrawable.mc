@@ -29,7 +29,7 @@ class BluetoothNotificationsDrawable extends WatchUi.Drawable {
                 ColourManagement.getBluetoothBitmap());
 
             self.conditionalDrawBitmap( 
-                deviceSettings.notificationCount > 0,
+                (IsNotificationCountDisplayed() && (deviceSettings.notificationCount > 0)),
                 dc,
                 LayoutConstants.NotificationsPosition,
                 ColourManagement.getNotificationsBitmap());
@@ -41,5 +41,9 @@ class BluetoothNotificationsDrawable extends WatchUi.Drawable {
         {
             dc.drawBitmap(position.x, position.y, bitmap);
         }
+    }
+    static function IsNotificationCountDisplayed()
+    {
+        return(LightWatchFaceApp.getProperty(PropertyConstants.DisplayNotifications));
     }
 }

@@ -1,5 +1,4 @@
 <properties>
-
     <property id="LightTheme" type="boolean">false</property>
     <property id="HighBatteryThreshold" type="number">50</property>
     <property id="MediumBatteryThreshold" type="number">20</property>
@@ -12,4 +11,5 @@
     <property id="HeartRateColour" type="number">0x00C0DE</property>
     <property id="DisplayHeartRate" type="boolean">true</property>
     <property id="HeartColour" type="number">0x00C0DE</property>
+    <property id="DisplayNotifications" type="boolean">true</property>
 </properties>
