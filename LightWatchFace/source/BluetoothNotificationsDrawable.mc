@@ -23,7 +23,7 @@ class BluetoothNotificationsDrawable extends WatchUi.Drawable {
         if (deviceSettings != null) 
         {
             self.conditionalDrawBitmap(
-                deviceSettings.phoneConnected,
+                (IsBluetoothStatusDisplayed() && deviceSettings.phoneConnected),
                 dc, 
                 LayoutConstants.BluetoothPosition,
                 ColourManagement.getBluetoothBitmap());
@@ -45,5 +45,9 @@ class BluetoothNotificationsDrawable extends WatchUi.Drawable {
     static function IsNotificationCountDisplayed()
     {
         return(LightWatchFaceApp.getProperty(PropertyConstants.DisplayNotifications));
+    }
+    static function IsBluetoothStatusDisplayed()
+    {
+        return(LightWatchFaceApp.getProperty(PropertyConstants.DisplayBluetoothStatus));
     }
 }

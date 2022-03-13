@@ -34,6 +34,11 @@ class LightWatchFaceView extends WatchUi.WatchFace
         {
             caloriesDrawable.onExitSleep();
         }
+        var batteryDrawable = self.findDrawableById(BatteryDrawable.ID);
+        if (batteryDrawable != null)
+        {
+            batteryDrawable.onExitSleep();
+        }
     }
     function onEnterSleep() 
     {
@@ -41,6 +46,11 @@ class LightWatchFaceView extends WatchUi.WatchFace
         if (caloriesDrawable != null)
         {
             caloriesDrawable.onEnterSleep();
+        }
+        var batteryDrawable = self.findDrawableById(BatteryDrawable.ID);
+        if (batteryDrawable != null)
+        {
+            batteryDrawable.onEnterSleep();
         }
     }
     function onSettingsChanged()

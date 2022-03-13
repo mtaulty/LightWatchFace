@@ -34,4 +34,5 @@
     <string id="ColourTheme">Default for Theme</string>
 
     <string id="DisplayNotificationsTitle">Display Notification Count</string>
+    <string id="DisplayBluetoothTitle">Display Bluetooth Status</string>
 </strings>

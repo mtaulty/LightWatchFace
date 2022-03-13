@@ -12,4 +12,5 @@
     <property id="DisplayHeartRate" type="boolean">true</property>
     <property id="HeartColour" type="number">0x00C0DE</property>
     <property id="DisplayNotifications" type="boolean">true</property>
+    <property id="DisplayBluetoothStatus" type="boolean">true</property>
 </properties>

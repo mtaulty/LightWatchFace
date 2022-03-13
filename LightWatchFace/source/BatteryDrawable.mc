@@ -21,26 +21,64 @@ class BatteryDrawable extends WatchUi.Drawable {
             self.images[i] = WatchUi.loadResource(self.resourceIds[i]); 
         }
 
+        self.drawMethods =
+        [
+            self.method(:drawBatteryIcon),
+            self.method(:drawBatteryText)
+        ];
+        self.tickCount = new WrapAroundCounter(self.drawMethods.size(), CALLS_BETWEEN_TICKS);
+
         self.onSettingsChanged();
     }
     function draw(dc) 
     {
-        var image = null;
         var batteryLevel = System.getSystemStats().battery;
+
+         var drawMethod = self.drawMethods[0];
+
+         if (self.highPower)
+         {
+            drawMethod = self.drawMethods[self.tickCount.getValue()];
+            self.tickCount.increment();
+         }
+         drawMethod.invoke(dc, batteryLevel);
+    }
+    function getBatteryLevelIndex(batteryLevel)
+    {
+        var index = 0;
 
         for (var i = 0; i < self.batteryThresholds.size(); i++)
         {
-            image = self.images[i];
-
             if (batteryLevel > self.batteryThresholds[i])
             {
+                index = i;
                 break;
             }
-        }
+        }      
+        return(index);  
+    }
+    function drawBatteryIcon(dc, batteryLevel)
+    {
+        var image = self.images[getBatteryLevelIndex(batteryLevel)];
+
         dc.drawBitmap(
             LayoutConstants.BatteryPosition.x, 
             LayoutConstants.BatteryPosition.y, 
             image);
+    }
+    function drawBatteryText(dc, batteryLevel)
+    {
+        var color = self.batteryColors[getBatteryLevelIndex(batteryLevel)];
+
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        
+        dc.drawText(
+            LayoutConstants.BatteryTextPosition.x, 
+            LayoutConstants.BatteryTextPosition.y, 
+            Graphics.FONT_SYSTEM_MEDIUM,  
+            batteryLevel.format(BATTERY_TEXT_FORMAT) + BATTERY_PERCENT, 
+            Graphics.TEXT_JUSTIFY_CENTER);
+
     }
     function onSettingsChanged()
     {
@@ -53,6 +91,15 @@ class BatteryDrawable extends WatchUi.Drawable {
                 self.batteryThresholds[i] = value;
             }
         }
+    }
+    function onEnterSleep()
+    {
+        self.highPower = false;
+    }
+    function onExitSleep()
+    {
+        self.highPower = true;
+        self.tickCount.setValue(0);
     }
     static var ID = "Battery";
 
@@ -76,6 +123,18 @@ class BatteryDrawable extends WatchUi.Drawable {
             PropertyConstants.MediumBatteryThreshold,
             PropertyConstants.LowBatteryThreshold
         ];
+    private var batteryColors =
+        [
+            Graphics.COLOR_GREEN,
+            Graphics.COLOR_YELLOW,
+            Graphics.COLOR_RED,
+            Graphics.COLOR_DK_RED
+        ];
+    private var tickCount;
     private var images = new[4];
-    
+    private var highPower = true;
+    private var drawMethods;
+    private const CALLS_BETWEEN_TICKS = 2;
+    private const BATTERY_PERCENT = "%";
+    private const BATTERY_TEXT_FORMAT = "%d";
 }

@@ -8,4 +8,5 @@ class LayoutConstants
     static const BluetoothPosition = new Rect(50, 50);
     static const NotificationsPosition = new Rect(140, 52);
     static const StepsCaloriesDistancePosition = new Rect(104,157);
+    static const BatteryTextPosition = new Rect(107,180);
 }
