@@ -35,4 +35,5 @@
 
     <string id="DisplayNotificationsTitle">Display Notification Count</string>
     <string id="DisplayBluetoothTitle">Display Bluetooth Status</string>
+    <string id="BoldTimeFont">Display Time in Bold Font</string>
 </strings>

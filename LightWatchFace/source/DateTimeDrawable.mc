@@ -14,6 +14,7 @@ class DateTimeDrawable extends WatchUi.Drawable {
         };
 
         self.timeFont = WatchUi.loadResource(Rez.Fonts.helmut);
+        self.boldTimeFont = WatchUi.loadResource(Rez.Fonts.helmetBold);
 
         Drawable.initialize(dictionary);
     }
@@ -28,7 +29,7 @@ class DateTimeDrawable extends WatchUi.Drawable {
         dc.drawText(
             LayoutConstants.TimePosition.x, 
             LayoutConstants.TimePosition.y, 
-            self.timeFont,  
+            self.getTimeFont(),  
             self.getTimeAsString(), 
             Graphics.TEXT_JUSTIFY_CENTER);
 
@@ -77,7 +78,12 @@ class DateTimeDrawable extends WatchUi.Drawable {
         );
         return(dateString);
     }
+    function getTimeFont()
+    {
+        return(LightWatchFaceApp.getProperty(PropertyConstants.BoldTimeFont) ? self.boldTimeFont : self.timeFont);
+    }
     var timeFont;
+    var boldTimeFont;
     const timeFormat = "$1$:$2$";
     const dateFormat = "$1$ $2$ $3$";
     const hhFormat24 = "%02d";

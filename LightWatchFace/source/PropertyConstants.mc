@@ -18,4 +18,5 @@ class PropertyConstants
     static var HeartColour = "HeartColour";
     static var DisplayNotifications = "DisplayNotifications"; 
     static var DisplayBluetoothStatus = "DisplayBluetoothStatus";
+    static var BoldTimeFont = "BoldTimeFont";
 }

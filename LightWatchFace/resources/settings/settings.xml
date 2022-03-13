@@ -122,4 +122,7 @@
     <setting propertyKey="@Properties.DisplayBluetoothStatus" title="@Strings.DisplayBluetoothTitle">
         <settingConfig type="boolean"/>
     </setting>
+    <setting propertyKey="@Properties.BoldTimeFont" title="@Strings.BoldTimeFont">
+        <settingConfig type="boolean"/>
+    </setting>
 </settings>

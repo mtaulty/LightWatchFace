@@ -1,3 +1,4 @@
 <fonts>
 <font id="helmut" filename="helmut.fnt" filter="0123456789:"/>
+<font id="helmetBold" filename="helmetBold.fnt" filter="0123456789:"/>
 </fonts>
