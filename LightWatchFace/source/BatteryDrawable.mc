@@ -68,7 +68,9 @@ class BatteryDrawable extends WatchUi.Drawable {
     }
     function drawBatteryText(dc, batteryLevel)
     {
-        var color = self.batteryColors[getBatteryLevelIndex(batteryLevel)];
+        // Using the colours of the icons isn't clear to see so we are sticking with
+        // the time colour for now.
+        var color = ColourManagement.getTimeColour();
 
         dc.setColor(color, Graphics.COLOR_TRANSPARENT);
         
